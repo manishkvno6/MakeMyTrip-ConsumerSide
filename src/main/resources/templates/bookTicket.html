@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MakeMyTrip Train Bookings</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container">
+
+		<h1>Book your train ticket.</h1>
+		<h5>Please the Passengers details:- </h5>
+		<font color='green'>
+			<p th:text="${successMsg}"></p>
+		</font>
+
+		<form th:action="@{/booking}" th:object="${passDetails}" method="post">
+			<table>
+				<tr>
+					<td><strong>Name : </strong></td>
+					<td><input type="text" th:field="*{pname}"></td>
+				</tr>
+				<tr>
+					<td><strong>Source : </strong> </td>
+					<td><input type="text" th:field="*{from}"></td>
+				</tr>
+				<tr>
+					<td><strong>Destination : </strong></td>
+					<td><input type="text" th:field="*{to}"></td>
+				</tr>
+				<tr>
+					<td><strong>Journey Date : </strong></td>
+					<td><input type="text" th:field="*{date}"></td>
+				</tr>
+				<tr>
+					<td><strong>Train No. :</strong></td>
+					<td><input type="text" th:field="*{trainNo}"></td>
+				</tr>
+				<tr>
+					<td><strong>Age:</strong></td>
+					<td><input type="text" th:field="*{passage}"></td>
+				</tr>
+				<tr>
+					<td><strong>Email : </strong></td>
+					<td><input type="text" th:field="*{pemail}"></td>
+				</tr>
+				<tr>
+					<td><strong>Birth class : </strong></td>
+					<td><input type="text" th:field="*{coach}"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Book Ticket" class="btn btn-danger"></td>
+				</tr>
+			</table>
+
+		</form>
+
+		<a href="/conTicket" class="btn- btn-danger">View Confirmed Ticket</a>
+
+	</div>
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
